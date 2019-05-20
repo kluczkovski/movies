@@ -3,7 +3,21 @@
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
-					<content></content>
+					<content>
+						<Image 
+							src="images/MoviesHeader.png"
+							width="100%"
+							tooltip="Movie illustration"> 
+						</Image>
+					</content>
+					
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer />
+								<Link text="Explore the IMDb Movie Database" href="https://www.imdb.com/"  target="_blank"/>	
+							<ToolbarSpacer />
+						</Toolbar>
+					</footer>
 				</Page>
 			</pages>
 		</App>
