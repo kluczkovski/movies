@@ -14,7 +14,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -31,7 +30,6 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
@@ -61,7 +59,7 @@
 			},
 			"movies": {
 				"type": "sap.ui.model.json.JSONModel",
-				"uri" : "model/Movies.json"
+				"uri": "model/Movies.json"
 			}
 		},
 		"resources": {
@@ -77,20 +75,37 @@
 				"viewPath": "opensap.movies.view",
 				"controlAggregation": "pages",
 				"controlId": "app",
-				"clearControlAggregation": false
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": ["NotFound"]
+				}
 			},
 			"routes": [{
-				"name": "RouteApp",
-				"pattern": "RouteApp",
-				"target": ["TargetApp"]
+				"name": "Home",
+				"pattern": "",
+				"target": ["Home"]
+			}, {
+				"name": "Detail",
+				"pattern": "movies/{movieID}/appointments/{appointmentID}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Detail"]
 			}],
 			"targets": {
-				"TargetApp": {
+				"Home": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "App",
-					"viewName": "App"
+					"viewId": "Home",
+					"viewName": "Home"
+				},
+				"Detail": {
+					"viewType": "XML",
+					"viewName": "Detail"
+				},
+				"NotFound": {
+					"viewType": "XML",
+					"viewName": "NotFound"
 				}
 			}
 		}

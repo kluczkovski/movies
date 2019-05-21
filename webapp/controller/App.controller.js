@@ -67,6 +67,20 @@ sap.ui.define([
 				var oAppointmentsBinding = oItem.getBinding("appointments");
 				oAppointmentsBinding.filter(oFilterCity);
 			});
+		},
+		
+		onAppointmentSelect: function (oAppointment){
+			var oContext = oAppointment.getBindingContext("movies"),
+				sPath = oContext.getPath();
+			console.debug(oContext);
+			console.debug(sPath);
+			
+			var aParameters = sPath.split("/");
+			console.debug(aParameters);
+			UIComponent.getRouterFor(this).navTo("Detail", {
+				movieID: aParameters[2],
+				appointmentID: aParameters[4]
+			});
 		}
 
 	});
